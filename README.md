@@ -5,7 +5,7 @@
 
 Polaris cards were decently popular, and some come with 8-16GB VRAM on the *very* cheap. 
 
-Unfortunately, If you are trying to take advantage of hipBLAS to accelerate LLMs (for example, using [koboldcpp](https://github.com/YellowRoseCx/koboldcpp-rocm) compiled for hip support), its probably not worth your time. AMD stopped compiling Rocm against Polaris, plus Polaris GPUs  don't support parallelised fp16.
+Unfortunately, If you are trying to take advantage of rocBLAS to accelerate LLMs (for example, using [koboldcpp](https://github.com/YellowRoseCx/koboldcpp-rocm) compiled for hip support), its probably not worth your time. AMD stopped compiling Rocm against Polaris, plus Polaris GPUs  don't support parallelised fp16.
 
 Just use openCL with cblas, or if you're on windows you can experiment with the Vulkan backend on kobold/llama.cpp. I find it a little faster than cblas, though it tends to toss out memory errors after a bit, especially on the initial token processing phase.
 
